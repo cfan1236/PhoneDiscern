@@ -9,6 +9,7 @@
 详细开发介绍看我博客
 
 https://www.cnblogs.com/rui1236/p/12155405.html
+
 小程序二维码
 
 ![图1](https://github.com/cfan1236/PhoneDiscern_wxapp/blob/master/image/01.jpg)
