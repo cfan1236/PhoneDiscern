@@ -94,9 +94,9 @@ namespace PhoneDiscern.Services
 			var img = Pix.LoadFromFile(imageFile);
 			var page = te_ocr.Process(img, PageSegMode.Auto);
 			string text = page.GetText().Trim().Replace("\r", "").Replace("\n", "");
-			_logger.Info("识别的原始数据:"+text);
+			_logger.Info("识别的原始数据:" + text);
 			page.Dispose();
-			//只提取数字
+			// 只提取数字
 			number_str = System.Text.RegularExpressions.Regex.Replace(text, @"[^0-9]+", "");
 			_logger.Info("只提取数字结果:" + number_str);
 			return number_str;
@@ -117,7 +117,7 @@ namespace PhoneDiscern.Services
 				var tempFile = GetImageFileName(1);
 				bmps.Save(tempFile);
 				number_str = Discern(tempFile);
-				//File.Delete(tempFile);
+				File.Delete(tempFile);
 			}
 			return number_str;
 		}
@@ -141,7 +141,7 @@ namespace PhoneDiscern.Services
 				// 将二值化后的图像保存下 
 				Utils.ToBinaryImage(bmpOut).Save(tempFile);
 				number_str = Discern(tempFile);
-				//File.Delete(tempFile);
+				File.Delete(tempFile);
 			}
 			return number_str;
 		}
@@ -155,7 +155,8 @@ namespace PhoneDiscern.Services
 		private static string GetImageFileName(int type = 0)
 		{
 			var runPath = Path.GetDirectoryName(typeof(Program).Assembly.Location);
-			runPath += "/image/";
+			// 创建日期文件夹 按月保存
+			runPath += "/image/" + DateTime.Now.ToString("yyyyMM") + "/";
 			if (!Directory.Exists(runPath))
 			{
 				Directory.CreateDirectory(runPath);
