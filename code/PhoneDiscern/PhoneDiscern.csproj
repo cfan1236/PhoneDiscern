@@ -12,7 +12,7 @@
     <PackageReference Include="Genesis.Tesseract4" Version="4.0.2.11" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
-    <PackageReference Include="MongoDB.Driver" Version="2.9.1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.19.0" />
     <PackageReference Include="NLog" Version="4.6.7" />
     <PackageReference Include="NLog.Config" Version="4.6.7" />
     <PackageReference Include="System.Drawing.Common" Version="4.6.1" />
